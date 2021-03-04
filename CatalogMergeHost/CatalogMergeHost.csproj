@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>CatalogMergeHost</RootNamespace>
+        <AssemblyName>CatalogMerge</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CsvHelper" Version="25.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="appsettings.release.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="appsettings.json" />
+      <Content Include="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CatalogMergeFeature\CatalogMergeFeature.csproj" />
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="xcopy &quot;$(TargetDir)*.exe&quot; &quot;$(SolutionDir)Distribution&quot; /y&#xD;&#xA;xcopy &quot;$(TargetDir)*.dll&quot; &quot;$(SolutionDir)Distribution&quot; /y&#xD;&#xA;xcopy &quot;$(TargetDir)appsettings.release.json&quot; &quot;$(SolutionDir)Distribution\appsettings.json&quot; /y&#xD;&#xA;xcopy &quot;$(TargetDir)$(TargetName)*.json&quot; &quot;$(SolutionDir)Distribution&quot; /y" />
+    </Target>
+
+</Project>

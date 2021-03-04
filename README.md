@@ -4,7 +4,7 @@ This application is written using C# using .NET 5.0 console application template
 
 JetBrains Rider 2020.3 is being used to create this application.
 
-###Project Modules
+### Project Modules
 The solution consist of 3 projects:
 ```
 PROJECT NAME          | DESCRIPTION
@@ -14,7 +14,7 @@ CatalogMergeTest      | Unit Test for CatalogMerge using xUnit, has appsettings.
 CatalogMergeHost      | Console application that host CatalogMergeFeature for execution, has appsettings.json
 ```
 
-###Application Configuration
+### Application Configuration
 appsettings.json is the configuration file of the application. Default values are as shown below:
 ```
 "MergeSetting" : {
@@ -44,7 +44,7 @@ appsettings.json is the configuration file of the application. Default values ar
 }
 ```
 
-###Important configuration settings:
+### Important configuration settings:
 ```
 COMMAND LINE ARGUMENT         | DESCRIPTION
 -----------------------------------------------------------------------------------------------------------------------------
@@ -56,10 +56,10 @@ MergeSetting:Folder:Output    | Output csv data file (merged catalog) is written
 MergeSetting:Folder:Reference | Reference csv data file (merged catalog) that becomes test reference, relative to Folder:Base
 ```
 
-###How to install
+### How to install
 Copy all files and folder inside *Distribution* folder into desired deployment folder.
 
-###How to run
+### How to run
 From deployment folder, simply run *CatalogMerge.exe* and it will use default configuration as shown in ```Application Configuration``` section
 
 CatalogMerge.exe accept command line argument as input parameters; it will override configuration values defined in appsettings.json file.
@@ -69,4 +69,4 @@ To override a setting, simply add
 CatalogMerge --MergeSetting:Folder:Base E:\ --MergeSetting:OutputFileName cipta_output.csv*
 ```
 
-####Created by Cipta Budhysutanto - March 2021
+#### Created by Cipta Budhysutanto - March 2021
